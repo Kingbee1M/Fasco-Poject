@@ -19,7 +19,7 @@ export default function Homenav() {
 
 
   return (
-    <div className="w-full h-auto flex flex-col items-start justify-between px-5 gap-4 lg:flex-row lg:items-center">
+    <div className="w-full h-auto flex flex-col items-start justify-between px-5 gap-4 lg:flex-row lg:items-center fixed top-0 left-0 right-0 m-auto bg-white z-50">
 
       <div className="w-full h-auto flex flex-row justify-between items-center lg:w-2/5">
         {/* THE WEBSITE LOGO */}
