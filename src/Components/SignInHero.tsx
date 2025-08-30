@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function SignInHero() {
   return (
-    <div className="w-7/10 h-auto flex flex-row items-center justify-center h-screen mt-8 gap-5">
+    <div className="w-7/10 h-auto flex flex-row items-center justify-center mt-8 gap-5">
         <Image src="/images/left.svg" alt="left Image" width={500} height={300} className="hidden lg:flex lg:w-1/3" />
 
         {/* Centered images   */}
