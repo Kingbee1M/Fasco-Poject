@@ -44,7 +44,6 @@ export default function Deals() {
     updateTime()
     const countdown = setInterval(updateTime, 1000)
 
-    // ✅ single cleanup for both intervals
     return () => {
       clearInterval(autoSlide)
       clearInterval(countdown)
@@ -59,7 +58,7 @@ export default function Deals() {
   })
 
   return (
-    <div className="w-7/10 flex flex-col items-center justify-center h-auto mt-10 lg:mt-20">
+    <div className="w-7/10 flex flex-col items-center justify-center h-auto mt-10 lg:mt-20 lg:hidden" id="deals">
       {/* Heading */}
       <div className="flex flex-col items-center justify-center gap-3 mb-7">
         <p className="text-[26px] font-Volkhov">Best Deals Of {month}</p>

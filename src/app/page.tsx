@@ -2,6 +2,7 @@ import Image from "next/image";
 import Homenav from "@/UI/HomeNav";
 import SignInHero from "@/Components/SignInHero";
 import Deals from "@/Components/Deals";
+import DealsLG from "@/Components/DealsLG";
 
 const logos = ["chanel", "calvinklein", "louisvuitton", "prada", "demin"];
 
@@ -12,6 +13,7 @@ export default function Home() {
       <SignInHero />
       <Image src={"/images/logos.svg"} alt="logos" width={1200} height={300} className="hidden lg:flex lg:mt-5 xl:mt-20" />
       <Deals />
+      <DealsLG />
     </div>
   );
 } 
