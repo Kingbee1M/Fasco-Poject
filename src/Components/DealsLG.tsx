@@ -58,12 +58,12 @@ export default function DealsLG () {
         trackMouse: true,
       })
     return (
-        <div className="hidden lg:flex lg:flex-row lg:justify-center lg:items-start w-7/10 h-auto my-10 ">
+        <div className="hidden lg:flex lg:flex-row lg:justify-center lg:items-start w-4/5 h-auto my-10 ">
 
             {/* Text half */}
-            <div className="w-1/2 flex flex-col items-start justify-center gap-5">
+            <div className="w-1/2 flex flex-col items-start justify-center gap-3">
                 <p className="text-[40px] font-Volkhov font-extrabold">Best Deals Of {month}</p>
-                <p className="w-4/5 text-[24px] text-[var(--grey-text)] font-[var(--font-Poppins)]">
+                <p className="w-4/5 text-[14px]  font-[var(--font-Poppins)]" style={{ color: 'var(--grey-text)' }}>
                     Discover our handpicked styles of the month. Trendy, comfortable, and
                     made for you. Shop now and enjoy great fashion at prices that won&apos;t break the bank
                 </p>
