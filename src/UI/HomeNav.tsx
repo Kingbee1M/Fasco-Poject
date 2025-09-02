@@ -40,9 +40,8 @@ export default function Homenav() {
         <div className="w-full h-auto flex flex-col justify-center items-start lg:flex-row gap-5 lg:gap-10 lg:items-center">
             <Link href="/" className="font-[var(--font-Poppins)] text-[15px] lg:text-[16px] font-medium hover:underline underline-offset-4 text-[var(--grey-text)]"  style={{ fontFamily: 'var(--font-Poppins)' }}>Home</Link>
             <Link href="#deals" className=" text-[15px] lg:text-[16px] font-medium hover:underline underline-offset-4 text-[var(--grey-text)]"  style={{ fontFamily: 'var(--font-Poppins)' }}>Deals</Link>
-            <Link href="/product" className=" text-[15px] lg:text-[16px] font-medium hover:underline underline-offset-4 text-[var(--grey-text)]"  style={{ fontFamily: 'var(--font-Poppins)' }}>New arrivals</Link>
-            <Link href="/pages" className=" text-[15px] lg:text-[16px] font-medium hover:underline underline-offset-4 text-[var(--grey-text)]"  style={{ fontFamily: 'var(--font-Poppins)' }}>Packages</Link>
-            <Link href="/pages" className=" text-[15px] lg:text-[16px] font-medium hover:underline underline-offset-4 text-[var(--grey-text)]"  style={{ fontFamily: 'var(--font-Poppins)' }}>Packages</Link>
+            <Link href="#arrivals" className=" text-[15px] lg:text-[16px] font-medium hover:underline underline-offset-4 text-[var(--grey-text)]"  style={{ fontFamily: 'var(--font-Poppins)' }}>New arrivals</Link>
+            <Link href="#packages" className=" text-[15px] lg:text-[16px] font-medium hover:underline underline-offset-4 text-[var(--grey-text)]"  style={{ fontFamily: 'var(--font-Poppins)' }}>Packages</Link>
             <Link href="/pages" className=" text-[15px] lg:text-[16px] font-medium hover:underline underline-offset-4 text-[var(--grey-text)]" style={{ fontFamily: 'var(--font-Poppins)' }}>Sign in</Link>
             <Link href="/pages" className=" text-[15px] font-medium hover:underline underline-offset-4 lg:text-[16px] text-white bg-black p-3 rounded-md" style={{ fontFamily: 'var(--font-Poppins)' }}>Sign up</Link>
         </div>

@@ -17,7 +17,7 @@ export default function Button({ label, onClick, variant = "primary", isActive =
       ? "bg-black text-white hover:bg-[var(--grey-text)]"
       : "bg-[var(--whiteish-bg)] text-[var(--grey-text)]"
     }`,
-    secondary: "bg-white border border-[var(--primary)] text-[var(--primary)] hover:bg-[var(--primary-light)]",
+    secondary: "bg-black text-white hover:bg-[var(--grey-text)] px-6 py-2 rounded-md font-medium transition-all duration-300",
   }
 
   return (

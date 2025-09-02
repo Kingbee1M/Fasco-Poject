@@ -2,6 +2,8 @@
 
 import Button from "@/UI/Button"
 import { useState } from "react"
+import { FaStar } from "react-icons/fa";
+import Image from "next/image";
 
 type Status = "in stock" | "Almost sold out" | "out of stock"
 
@@ -85,7 +87,7 @@ export default function Arrivals () {
   ]
 
     return (
-        <div className="w-4/5 flex flex-col justify-center items-center gap-3 my-10">
+        <div className="w-4/5 flex flex-col justify-center items-center gap-3 my-10" id="arrivals">
             <h1 className="text-[32px] text-[var(--grey-text)] font-extrabold">New Arrivals</h1>
             <p className="text-[14px] text-[var(--grey-text)] font-[var(--font-Poppins)] text-center lg:w-4/5">Check out our newest arrivals, from trendy clothes and stylish accessories to everyday essentials and statement pieces. Find the perfect look to refresh your wardrobe and stay ahead of the trends.</p>
             <div className="w-full flex flex-row items-center justify-center flex-wrap gap-3 mt-20">
@@ -100,29 +102,37 @@ export default function Arrivals () {
             </div>
 
             {/* items */}
-            <div className="flex flex-wrap justify-center items-center gap-20 mt-10">
+            <div className="flex flex-wrap justify-center items-center gap-20 mt-10 mb-15">
                 {items.map((item) => (
-                        <div key={item.name} className="w-[250px] h-auto flex flex-col justify-start items-start gap-2">
-                            <img src={item.image} alt={item.name} />
-                            <div className="flex flex-row justify-between items-center w-full">
-                                <h2>{item.name}</h2>
-                                <p>Rating: {item.rating}</p>
+                        <div key={item.name} className="w-[250px] h-[330px] flex flex-col justify-evenly items-start gap-2 bg-white shadow-lg p-3 rounded-3xl">
+                            <Image src={item.image} alt={item.name} width={250} height={250} className="w-full h-auto rounded-3xl" />
+                            <div className="flex flex-col w-full gap-1">
+                              <div className="flex flex-row justify-between items-center w-full">
+                                  <h2>{item.name}</h2>
+                                  <div className="flex items-center">
+                                      {Array.from({ length: item.rating }, (_, i) => (
+                                          <FaStar key={i} className="text-yellow-500 mr-1" />
+                                      ))}
+                                  </div>
+                              </div>
+                              <p className="text-[11px] text-[var(--light-grey-text)]">{item.designer}</p>
                             </div>
-                            <p>{item.designer}</p>
-                            <p>Reviews: {item.reviewCount}</p>
-                            <div>
+                            <p className="text-[12px]">({item.reviewCount}) customer Reviews</p>
+                            <div className="w-full flex flex-row justify-between items-center">
                                 <p>Price: ${item.price}</p>
-                                <p className={`${
+                                <p className={` text-[14px] ${
                                     item.status === "in stock"
                                         ? "text-green-500"
                                         : item.status === "Almost sold out"
                                         ? "text-yellow-500"
                                         : "text-red-500"
-                                }`}>Status: {item.status}</p>
+                                }`}> {item.status}</p>
                             </div>
                         </div>
                     ))}
             </div>
+
+            <Button label="View More" onClick={() => {}} variant="secondary" />
         </div>
     )
 }
