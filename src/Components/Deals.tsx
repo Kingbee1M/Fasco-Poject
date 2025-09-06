@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useSwipeable } from "react-swipeable"
+import Image from "next/image"
 
 const deals = [
   { image: "/images/option1.svg", description: "01 --- spring sale", discount: "20% off" },
@@ -82,9 +83,11 @@ export default function Deals() {
             transition={{ duration: 0.5 }}
             className="absolute w-4/5 h-full flex flex-col items-center gap-5"
           >
-            <img
+            <Image
               src={deals[index].image}
               alt={deals[index].description}
+              width={300}
+              height={200}
               className="w-full h-full"
             />
             <div className="w-auto flex flex-col items-center absolute z-10 bottom-3 left-21 bg-white px-3 py-6 ">

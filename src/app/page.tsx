@@ -6,7 +6,7 @@ import DealsLG from "@/Components/DealsLG";
 import Arrivals from "@/Components/Arrivals";
 import Packages from "@/Components/Packages";
 
-const logos = ["chanel", "calvinklein", "louisvuitton", "prada", "demin"];
+// const logos = ["chanel", "calvinklein", "louisvuitton", "prada", "demin"];
 
 export default function Home() {
   return (
