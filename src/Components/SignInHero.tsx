@@ -16,7 +16,7 @@ export default function SignInHero() {
           <Image src="/images/bottom.svg" alt="center Image" width={500} height={300} />
         </div>
 
-        <Image src="/images/right.svg?v=1" alt="right Image" width={500} height={300} className="hidden lg:flex lg:w-1/3" />
+        <img src="/images/right.svg?v=1" alt="right Image" width={500} height={300} className="hidden lg:flex lg:w-1/3" />
     </div>
   );
 }
