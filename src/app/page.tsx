@@ -5,6 +5,9 @@ import Deals from "@/Components/Deals";
 import DealsLG from "@/Components/DealsLG";
 import Arrivals from "@/Components/Arrivals";
 import Packages from "@/Components/Packages";
+import Newsletter from "@/Components/Newsletter";
+import Community from "@/Components/Community";
+import FollowInsta from "@/Components/FollowInsta";
 
 // const logos = ["chanel", "calvinklein", "louisvuitton", "prada", "demin"];
 
@@ -18,6 +21,9 @@ export default function Home() {
       <DealsLG />
       <Arrivals />
       <Packages />
+      <FollowInsta />
+      <Community />
+      <Newsletter />
     </div>
   );
 } 
