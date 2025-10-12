@@ -68,13 +68,13 @@ export default function Items({ items }: { items: Item[] }) {
         {/* items grid */}
         <div className="w-full flex flex-wrap justify-between items-center gap-1 mt-10 ">
                 {items.map((item) => (
-                    <div key={item.id} className={` ${selectedButton === "1" ? "w-full" : selectedButton === "2" ? "w-[40%]" : selectedButton === "3" ? "w-[30%]" : selectedButton === "4" ? "w-[20%] text-sm" : "w-[17%] text-[9px]"} flex flex-col justify-center p-3 hover:shadow-lg transition-shadow duration-300 ease-in-ou gap-2`}>
+                    <div key={item.id} className={` ${selectedButton === "1" ? "w-full" : selectedButton === "2" ? "w-[40%]" : selectedButton === "3" ? "w-[30%]" : selectedButton === "4" ? "w-[20%] text-sm" : "w-[25%] md:w-[17%]"} flex flex-col justify-center p-3 hover:shadow-lg transition-shadow duration-300 ease-in-ou gap-2`}>
                         <Image src={item.imageUrl} alt={item.title} width={300} height={300} className="w-full h-auto object-cover" />
-                        <p>{item.title}</p>
-                        <p>{item.price}</p>
-                        <div>
+                        <p className={` ${selectedButton === "4" ? "text-[8px] md:text-[9px] lg:text-[14px] xl:text-[16px]" : selectedButton === "5" ? "text-[6px] md:text-[9px] lg:text-[14px]" : "text-[9px] md:text-[16px] lg:text-[20px]"}`}>{item.title}</p>
+                        <p className={` ${selectedButton === "4" ? "text-[6px] md:text-[7px] lg:text-[12px] xl:text-[14px]" : selectedButton === "5" ? "text-[4px] md:text-[7px] lg:text-[12px]" : "text-[7px] md:text-[14px] lg:text-[18px]"}`}>{item.price}</p>
+                        <div className="h-auto flex flex-row gap-1 mt-2">
                             {item.color.map((color) => (
-                                <span key={color} className="w-3 h-3 rounded-full inline-block mr-2 cursor-pointer box-border hover:border hover:p-1" style={{ backgroundColor: colors[color] }}></span>
+                                <span key={color} className="w-2 h-2 lg:w-3 lg:h-3 rounded-full inline-block cursor-pointer box-border hover:border hover:p-1" style={{ backgroundColor: colors[color] }}></span>
                             ))}
                         </div>
                     </div>

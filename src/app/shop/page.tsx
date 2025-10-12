@@ -6,6 +6,10 @@ import { IoChevronForward } from "react-icons/io5";
 import Filters from "@/Components/ShopComponents/Filters";
 import { useState } from "react";
 import Items from "@/Components/ShopComponents/Items";
+import Packages from "@/Components/Packages";
+import FollowInsta from "@/Components/FollowInsta";
+import Newsletter from "@/Components/Newsletter";
+
 
 const items = [
   {
@@ -146,7 +150,7 @@ export default function ShopPage() {
 
 
       {/* Content */}
-      <div className="w-9/10 flex flex-row justify-between items-start gap-5 mt-10">
+      <div className="w-9/10 flex flex-row justify-center lg:justify-between items-start gap-5 mt-10">
 
         {/* Filters */}
         <Filters 
@@ -170,7 +174,9 @@ export default function ShopPage() {
 
         <Items items={items} />
       </div>
-
+      <Packages />
+      <FollowInsta />
+      <Newsletter />
     </div>
   );
 }
