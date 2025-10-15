@@ -3,7 +3,7 @@ import Image from "next/image"
 
 export default function Newsletter () {
     return(
-        <div className="w-full h-auto flex flex-row justify-center items-center gap-5">
+        <div className="w-full h-auto flex flex-row justify-center items-center gap-5 mt-30">
                     <Image src={"/images/news1.svg"} alt="newsletter" width={150} height={150} className="w-auto hidden lg:flex" />
                     <div className="w-full h-auto flex flex-col justify-center items-center gap-5">
                     <div className="w-full h-auto flex flex-col justify-center items-center gap-5 shadow-lg py-7 px-12">

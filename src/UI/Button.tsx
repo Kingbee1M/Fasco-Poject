@@ -26,14 +26,13 @@ export default function Button({
   rightIcon,
   isActive = false,
   disabled = false,
-  fullWidth = false,
   className = "",
   color,
   type = "button",
 }: ButtonProps) {
   const baseStyles = `
-    flex items-center justify-center gap-2 font-medium 
-    transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2
+    font-medium 
+    transition-all duration-300 focus:outline-none
   `;
 
   const variants = {
@@ -56,7 +55,7 @@ export default function Button({
     `,
     prices: `
       text-[var(--light-grey-text)]
-      hover:bg-[var(--grey-text)] hover:text-white rounded-md cursor-pointer justify-start px-0
+      hover:bg-[var(--grey-text)] hover:text-white rounded-md cursor-pointer px-0 text-left
     `,
   };
 
@@ -80,7 +79,6 @@ export default function Button({
         baseStyles,
         variants[variant],
         variant !== "colors" && sizes[size],
-        fullWidth && "w-full",
         disabled && "opacity-50 cursor-not-allowed",
         className
       )}

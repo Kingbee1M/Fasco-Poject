@@ -3,7 +3,7 @@ import Button from "@/UI/Button"
 
 export default function Packages () {
     return (
-        <div className="w-full flex flex-col lg:flex-row justify-center lg:justify-between items-center lg:bg-[var(--dark-gray)] mt-10" id="packages">
+        <div className="w-full flex flex-col lg:flex-row justify-center lg:justify-between items-center lg:bg-[var(--dark-gray)] mt-30" id="packages">
             <Image src="/images/package.svg" alt="Package Image" width={500} height={500} className="w-1/2 h-auto hidden lg:flex" />
             <Image src="/images/packagesm.png" alt="Package Image" width={500} height={500} className="w-full h-auto inline lg:hidden mb-5" />
             <div className="flex flex-col justify-center items-center gap-3 shadow-2xl rounded-3xl lg:shadow-none lg:items-start lg:ml-4 p-5 lg:gap-2 lg:rounded-none">

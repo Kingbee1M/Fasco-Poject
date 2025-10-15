@@ -36,7 +36,7 @@ export default function NavBar() {
 
 
   return (
-    <div className="w-full h-auto flex flex-col items-start justify-between p-5 gap-4 lg:flex-row lg:items-center fixed top-0 left-0 right-0 bg-white">
+    <div className="w-full h-auto flex flex-col items-start justify-between p-5 gap-4 lg:flex-row lg:items-center fixed top-0 left-0 right-0 z-30 bg-white">
 
       <div className="w-full h-auto flex flex-row justify-between items-center lg:w-2/5">
         {/* THE WEBSITE LOGO */}
@@ -56,7 +56,13 @@ export default function NavBar() {
         {/* lINKS */}
         <div className="w-full h-auto flex flex-col justify-center items-center lg:w-auto lg:flex-row gap-5 lg:gap-10">
             {navigation.map((item) => (
-              <Link key={item.name} href={item.href} className={` ${pathname === item.href ? "lg:underline lg:font-bold" : ""} text-[15px] font-medium hover:underline underline-offset-4 text-[var(--grey-text)] lg:text-[25px] `} style={{ fontFamily: 'var(--font-Poppins)' }}>
+              <Link key={item.name} href={item.href} className={` ${ item.href === "/"
+                ? pathname === "/" // only exact match for home
+                  ? "lg:underline lg:font-bold"
+                  : ""
+                : pathname.startsWith(item.href)
+                ? "lg:underline lg:font-bold"
+                : ""} text-[15px] font-medium hover:underline underline-offset-4 text-[var(--grey-text)] lg:text-[25px] `} style={{ fontFamily: 'var(--font-Poppins)' }}>
                 {item.name}
               </Link>
             ))}

@@ -23,6 +23,13 @@ const items = [
     brand: "Minimog",
     collection: "All products",
     tags: ["Fashion", "Hats"],
+    Variety: [
+      "/images/hats(1).jpg",
+      "/images/hats(2).jpg",
+      "/images/hats(3).jpg",
+    ],
+    rating: 4,
+    quantity: 2
   },
   {
     id: 2,
@@ -35,6 +42,14 @@ const items = [
     brand: "Retrolie",
     collection: "Best sellers",
     tags: ["Fashion", "Denim"],
+    Variety: [
+      "/images/blend-shirt(1).jpg",
+      "/images/blend-shirt(2).jpg",
+      "/images/blend-shirt(3).jpg",
+      "/images/blend-shirt(4).jpg",
+    ],
+    rating: 4,
+    quantity: 10
   },
   {
     id: 3,
@@ -47,6 +62,14 @@ const items = [
     brand: "Brook",
     collection: "New arrivals",
     tags: ["Fashion", "Bags"],
+    Variety: [
+      "/images/blazer(1).jpg",
+      "/images/blazer(2).jpg",
+      "/images/blazer(3).jpg",
+      "/images/blazer(4).jpg",
+    ],
+    rating: 4,
+    quantity: 15
   },
   {
     id: 4,
@@ -58,7 +81,16 @@ const items = [
     size: ["Small", "Medium", "Large"],
     brand: "Learts",
     collection: "Accessories",
-    tags: ["Fashion", "Sunglasses"],
+    tags: ["Fashion", "Hats"],
+    Variety: [
+      "/images/sun-hat(1).jpg",
+      "/images/sun-hat(2).jpg",
+      "/images/sun-hat(3).jpg",
+      "/images/sun-hat(4).jpg",
+      "/images/sun-hat(5).jpg",
+    ],
+    rating: 5,
+    quantity: 13
   },
   {
     id: 5,
@@ -71,10 +103,16 @@ const items = [
     brand: "Vagabond",
     collection: "All products",
     tags: ["Fashion", "Beachwear"],
+    Variety: [
+      "/images/linen-top(1).jpg",
+      "/images/linen-top(2).jpg"
+    ],
+    rating: 2,
+    quantity: 6
   },
   {
     id: 6,
-    title: "Oversized T-shirt",
+    title: "Denim Jacket",
     price: "$12.00",
     imageUrl: "/images/Oversized-T-shirt.svg",
     status: "Sold out",
@@ -83,6 +121,17 @@ const items = [
     brand: "Abby",
     collection: "Best sellers",
     tags: ["Fashion", "Belt"],
+    Variety: [
+      "/images/variety(1).svg",
+      "/images/variety(2).svg",
+      "/images/variety(3).svg",
+      "/images/variety(4).svg",
+      "/images/variety(5).svg",
+      "/images/variety(6).svg",
+      "/images/variety(7).svg",
+    ],
+    rating: 3,
+    quantity: 3
   },
   {
     id: 7,
@@ -94,7 +143,15 @@ const items = [
     size: ["Small", "Medium"],
     brand: "Minimog",
     collection: "New arrivals",
-    tags: ["Fashion", "Beachwear"],
+    tags: ["Sunglasses", "Beachwear"],
+    Variety: [
+      "/images/sunglasses(1).jpg",
+      "/images/sunglasses(2).jpg",
+      "/images/sunglasses(3).jpg",
+      "/images/sunglasses(4).jpg",
+    ],
+    rating: 5,
+    quantity: 35
   },
   {
     id: 8,
@@ -106,7 +163,18 @@ const items = [
     size: ["Large", "Extra Large"],
     brand: "Retrolie",
     collection: "Accessories",
-    tags: ["Fashion", "Snacker"],
+    tags: ["Fashion", "Snacker"], 
+    Variety: [
+      "/images/variety(1).svg",
+      "/images/variety(2).svg",
+      "/images/variety(3).svg",
+      "/images/variety(4).svg",
+      "/images/variety(5).svg",
+      "/images/variety(6).svg",
+      "/images/variety(7).svg",
+    ],
+    rating: 4,
+    quantity: 8
   },
   {
     id: 9,
@@ -119,6 +187,13 @@ const items = [
     brand: "Brook",
     collection: "All products",
     tags: ["Fashion", "Sandal"],
+    Variety: [
+      "/images/dotted-dress(1).jpg",
+      "/images/dotted-dress(2).jpg",
+      "/images/dotted-dress(3).jpg",
+    ],
+    rating: 4,
+    quantity: 10
   },
 ];
 
@@ -134,6 +209,52 @@ export default function ShopPage() {
     const [selectBrands, setSelectedBrands] = useState<'Minimog' | 'Retrolie' | 'Brook' | 'Learts' | 'Vagabond' | 'Abby' | null>(null);
     const [Collection, setCollection] = useState<'All products' | 'Best sellers' | 'New arrivals' | 'Accessories' | null>(null);
     const [tags , setTags] = useState<"Fashion" | "Hats" | "Sandal" | "Belt" | "Bags" | "Snacker" | "Denim" | "Minimog" | "Vagabond" | "Sunglasses" | "Beachwear" | null>(null);
+
+    console.log(selectedSizes, selectedColors, selectPriceRange, selectBrands, Collection, tags);
+
+    let displayItems = items;
+
+    if (selectedSizes) {
+      displayItems = displayItems.filter(item => item.size.map(size => size.toLowerCase()).includes(selectedSizes!));
+    }
+    if (selectedColors) {
+      displayItems = displayItems.filter(item => item.color.includes(selectedColors!));
+    }
+    if (selectPriceRange) {
+      displayItems = displayItems.filter(item => {
+        const price = parseFloat(item.price.replace('$', ''));
+        switch (selectPriceRange) {
+          case '$0-$50':
+            return price >= 0 && price <= 50;
+          case '$50-$100':
+            return price > 50 && price <= 100;
+          case '$100-150':
+            return price > 100 && price <= 150;
+          case '$150-$200':
+            return price > 150 && price <= 200;
+          case '$200-$250':
+            return price > 200 && price <= 250;
+          case '$250-$300':
+            return price > 250 && price <= 300;
+          case '$350-$400':
+            return price > 350 && price <= 400;
+          default:
+            return true;
+        }
+      });
+    }
+    if (selectBrands) {
+      displayItems = displayItems.filter(item => item.brand === selectBrands);
+    }
+    if (Collection) {
+      displayItems = displayItems.filter(item => item.collection === Collection);
+    }
+    if (tags) {
+      displayItems = displayItems.filter(item => item.tags.includes(tags!));
+    }
+
+    console.log(displayItems);
+    
 
   return (
     <div className="w-full mt-28 mb-20 flex flex-col items-center justify-center text-black">
@@ -172,7 +293,7 @@ export default function ShopPage() {
         setTags={setTags} 
         />
 
-        <Items items={items} />
+        <Items items={displayItems} />
       </div>
       <Packages />
       <FollowInsta />

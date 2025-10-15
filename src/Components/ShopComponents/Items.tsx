@@ -1,6 +1,7 @@
 "use client"
 import { useState } from "react"
 import Image from "next/image"
+import Link from "next/link";
 
 type ButtonOption = {
   id: number;
@@ -28,6 +29,9 @@ interface Item {
     brand: string;
     collection: string;
     tags: string[];
+    Variety: string[];
+    rating: number
+    quantity: number
 }
 
 const colors: Record<string, string> = {
@@ -55,7 +59,7 @@ export default function Items({ items }: { items: Item[] }) {
 
         {/* headings */}
         <div className="w-full flex flex-row justify-between items-center">
-            <p className="w-full text-[12px]">Take a pick of you choice from our collection</p>
+            <p className="w-full text-[8px] md:text-[12px] lg:text-[16px]">Take a pick of you choice from our collection</p>
             <div className="w-full h-auto flex flex-row justify-end items-center gap-3">
                 {buttons.map((button) => (
                     <button key={button.id} onClick={() => setSelectedButton(button.selected === selectedButton ? "3" : button.selected)} className={` ${selectedButton === button.selected ? "border-2 border-black" : "border border-[var(--light-gray3)]"} p-1 rounded-md cursor-pointer focus:outline-none focus:border-none`}>
@@ -68,7 +72,7 @@ export default function Items({ items }: { items: Item[] }) {
         {/* items grid */}
         <div className="w-full flex flex-wrap justify-between items-center gap-1 mt-10 ">
                 {items.map((item) => (
-                    <div key={item.id} className={` ${selectedButton === "1" ? "w-full" : selectedButton === "2" ? "w-[40%]" : selectedButton === "3" ? "w-[30%]" : selectedButton === "4" ? "w-[20%] text-sm" : "w-[25%] md:w-[17%]"} flex flex-col justify-center p-3 hover:shadow-lg transition-shadow duration-300 ease-in-ou gap-2`}>
+                    <Link href={`/product/${encodeURIComponent(item.title.replace(/\s+/g, "-"))}`} key={item.id} className={` ${selectedButton === "1" ? "w-4/5" : selectedButton === "2" ? "w-[40%]" : selectedButton === "3" ? "w-[30%]" : selectedButton === "4" ? "w-[20%] text-sm" : "w-[25%] sm:w-[16%] md:w-[17%]"} flex flex-col justify-center p-3 hover:shadow-lg transition-shadow duration-300 ease-in-ou gap-2`}>
                         <Image src={item.imageUrl} alt={item.title} width={300} height={300} className="w-full h-auto object-cover" />
                         <p className={` ${selectedButton === "4" ? "text-[8px] md:text-[9px] lg:text-[14px] xl:text-[16px]" : selectedButton === "5" ? "text-[6px] md:text-[9px] lg:text-[14px]" : "text-[9px] md:text-[16px] lg:text-[20px]"}`}>{item.title}</p>
                         <p className={` ${selectedButton === "4" ? "text-[6px] md:text-[7px] lg:text-[12px] xl:text-[14px]" : selectedButton === "5" ? "text-[4px] md:text-[7px] lg:text-[12px]" : "text-[7px] md:text-[14px] lg:text-[18px]"}`}>{item.price}</p>
@@ -77,7 +81,7 @@ export default function Items({ items }: { items: Item[] }) {
                                 <span key={color} className="w-2 h-2 lg:w-3 lg:h-3 rounded-full inline-block cursor-pointer box-border hover:border hover:p-1" style={{ backgroundColor: colors[color] }}></span>
                             ))}
                         </div>
-                    </div>
+                    </Link>
                 ))}
         </div>
     </div>
