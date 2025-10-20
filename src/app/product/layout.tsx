@@ -12,7 +12,7 @@ export default function productLayout({
   return (
       <>
         {children}
-        <div className="w-full flex flex-col justify-center items-center gap-5">
+        <div className="w-full overflow-x-hidden flex flex-col justify-center items-center gap-5">
             <Packages />
             <Deals />
             <DealsLG />

@@ -193,7 +193,7 @@ const items = [
       "/images/dotted-dress(3).jpg",
     ],
     rating: 4,
-    quantity: 10
+    quantity: 0
   },
 ];
 
@@ -209,8 +209,6 @@ export default function ShopPage() {
     const [selectBrands, setSelectedBrands] = useState<'Minimog' | 'Retrolie' | 'Brook' | 'Learts' | 'Vagabond' | 'Abby' | null>(null);
     const [Collection, setCollection] = useState<'All products' | 'Best sellers' | 'New arrivals' | 'Accessories' | null>(null);
     const [tags , setTags] = useState<"Fashion" | "Hats" | "Sandal" | "Belt" | "Bags" | "Snacker" | "Denim" | "Minimog" | "Vagabond" | "Sunglasses" | "Beachwear" | null>(null);
-
-    console.log(selectedSizes, selectedColors, selectPriceRange, selectBrands, Collection, tags);
 
     let displayItems = items;
 

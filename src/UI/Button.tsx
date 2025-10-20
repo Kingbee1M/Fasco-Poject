@@ -13,6 +13,7 @@ interface ButtonProps {
   disabled?: boolean;
   fullWidth?: boolean;
   className?: string;
+  children?: React.ReactNode;
   color?: string;
   type?: "button" | "submit" | "reset";
 }
@@ -27,12 +28,13 @@ export default function Button({
   isActive = false,
   disabled = false,
   className = "",
+  children,
   color,
   type = "button",
 }: ButtonProps) {
   const baseStyles = `
     font-medium 
-    transition-all duration-300 focus:outline-none
+    transition-all duration-300 focus:outline-none cursor-pointer
   `;
 
   const variants = {
@@ -85,7 +87,7 @@ export default function Button({
       style={variantStyle}
     >
       {leftIcon && <span className="text-lg">{leftIcon}</span>}
-      {label}
+      {children ? children : label}
       {rightIcon && <span className="text-lg">{rightIcon}</span>}
     </button>
   );

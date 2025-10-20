@@ -6,6 +6,7 @@ import { MdStarOutline } from "react-icons/md";
 import { BsBag } from "react-icons/bs";
 import React from "react";
 import { usePathname } from "next/navigation";
+import { useCartStore } from "@/store/useCartStore";
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -17,8 +18,7 @@ const navigation = [
 const icons = [
   { name: 'search', href: '#', icon: <CiSearch /> },
   { name: 'profile', href: '#', icon: <IoPersonOutline /> },
-  { name: 'wishlist', href: '#', icon: <MdStarOutline /> },
-  { name: 'cart', href: '#', icon: <BsBag /> },
+  { name: 'wishlist', href: '/cart', icon: <MdStarOutline /> },
 ]
 
 
@@ -33,6 +33,9 @@ export default function NavBar() {
     setIsMenuVisible(!ismenuVisible);
     setIsCancelVisible(!isCancelVisible);
   }
+
+  const cart = useCartStore( (state => state.cart))
+  const cartnumber = cart.length
 
 
   return (
@@ -51,7 +54,7 @@ export default function NavBar() {
       </div>
 
         {/* RENDERING MENU */}
-      <div className={`${isMenuOpen ? "max-h-96 opacity-100 pb-3" : "max-h-0 opacity-0"} overflow-hidden w-full flex-col justify-center items-center lg:max-h-none lg:pb-0 lg:h-auto lg:opacity-100 lg:justify-between lg:flex lg:flex-row lg:gap-4 transition-all duration-500 ease-in-out bg-white`}>
+      <div className={`${isMenuOpen ? "max-h-96 opacity-100 pb-3" : "max-h-0 opacity-0"} overflow-hidden w-full flex-col justify-center items-center lg:overflow-auto lg:max-h-none lg:pb-0 lg:h-auto lg:opacity-100 lg:justify-between lg:flex lg:flex-row lg:gap-4 transition-all duration-500 ease-in-out bg-white`}>
         
         {/* lINKS */}
         <div className="w-full h-auto flex flex-col justify-center items-center lg:w-auto lg:flex-row gap-5 lg:gap-10">
@@ -76,6 +79,12 @@ export default function NavBar() {
           })}
             </Link>
           ))}
+          <div className="relative">
+            <Link href="/cart" className=" text-[var(--grey-text)] hover:text-black transition-all duration-300 ease-in-out"><BsBag className="text-xl hover:text-yellow-500 transition-all duration-300 ease-in-out" /></Link>
+              {cartnumber > 0 && (
+                <div className="text-white text-center text-xs bg-red-500 w-3 h-3 absolute rounded-full bottom-3 right-4 flex items-center justify-center p-2">{cartnumber}</div>
+              )}
+          </div>
         </div>
 
 

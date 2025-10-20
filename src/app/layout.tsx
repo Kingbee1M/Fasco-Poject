@@ -25,6 +25,7 @@ export default function RootLayout({
         <NavbarWrapper />
         {children}
         <Footer />
+        <div id="portal-root" />
       </body>
     </html>
   );
