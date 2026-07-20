@@ -2,7 +2,7 @@ export default function Footer() {
 
 
   return (
-        <div className="w-full h-auto py-10 border-t-2 border-[var(--light-gray2)] flex flex-col justify-center items-start gap-5 px-3  lg:items-center lg:gap-20">
+        <div className="w-full h-auto py-10 border-t-2 border-[var(--light-gray2)] flex flex-col justify-center items-start gap-5 px-3  lg:items-center lg:gap-20 dark:bg-white dark:text-black">
           <div  className="w-full flex flex-col justify-center items-start gap-5 lg:flex-row lg:justify-between lg:items-center lg:w-9/10">
             <p className="text-[var(--grey-text2)] text-[17px] lg:text-[25px] font-extrabold">FASCO</p>
             <ul className="flex flex-col justify-center items-start gap-5 ml-0 lg:flex-row lg:justify-end">

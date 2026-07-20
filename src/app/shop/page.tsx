@@ -255,7 +255,7 @@ export default function ShopPage() {
     
 
   return (
-    <div className="w-full mt-28 mb-20 flex flex-col items-center justify-center text-black">
+    <div className="w-full mt-28 pb-20 flex flex-col items-center justify-center text-black dark:bg-white dark:text-black">
 
       {/* Header */}
       <div className="flex flex-col justify-center items-center gap-3 text-lg">
@@ -269,7 +269,7 @@ export default function ShopPage() {
 
 
       {/* Content */}
-      <div className="w-9/10 flex flex-row justify-center lg:justify-between items-start gap-5 mt-10">
+      <div className="w-9/10 flex flex-row justify-center lg:justify-between items-start gap-5 mt-10 dark:bg-white dark:text-black">
 
         {/* Filters */}
         <Filters 

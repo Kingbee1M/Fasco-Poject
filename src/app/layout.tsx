@@ -21,7 +21,7 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
         />
       </head>
-      <body className="antialiased">
+      <body className="antialiased dark:bg-white dark:text-black">
         <NavbarWrapper />
         {children}
         <Footer />

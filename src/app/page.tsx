@@ -13,7 +13,7 @@ import FollowInsta from "@/Components/FollowInsta";
 
 export default function Home() {
   return (
-    <div className="w-full h-auto flex flex-col items-center justify-items-center mb-20">
+    <div className="w-full h-auto flex flex-col items-center justify-items-center pb-20 dark:bg-white dark:text-black">
       <Homenav />
       <SignInHero />
       <Image src={"/images/logos.svg"} alt="logos" width={1200} height={300} className="hidden lg:flex lg:mt-5 xl:mt-20" />

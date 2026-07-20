@@ -298,7 +298,7 @@ export default function ProductPage({params,}: {params: Promise<{ slug: string }
     }
 
     return (
-        <div className="w-full overflow-x-hidden flex flex-col sm:flex-row items-center sm:justify-center sm:items-start gap-5 lg:gap-10 mt-40 mb-20">
+        <div className="w-full overflow-x-hidden flex flex-col sm:flex-row items-center sm:justify-center sm:items-start gap-5 lg:gap-10 mt-35 mb-20 dark:bg-white dark:text-black">
 
             {/* Images */}
             <div className="w-fit overflow-x-hidden lg:w-auto flex flex-col-reverse md:flex-row gap-2 items-center sm:items-start justify-center">
