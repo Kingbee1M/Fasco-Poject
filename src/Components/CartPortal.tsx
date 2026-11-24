@@ -120,7 +120,7 @@ const CartPortal = ({setCartOpen, itemData,}: Props) => {
         ></div>
 
             {/* content */}
-            <div className="relative flex flex-col justify-between p-5 w-[500px] h-screen bg-[var(--background)] shadow-[var(--shadow-grey)] py-4 pointer-events-auto text-[var(--grey-text)]">
+            <div className="relative flex flex-col justify-between p-5 w-[500px] h-screen bg-[var(--background)] shadow-[var(--shadow-grey)] py-4 pointer-events-auto text-grey-text">
                 
                 {/* Top div */}
                 <div className="flex flex-col gap-1">

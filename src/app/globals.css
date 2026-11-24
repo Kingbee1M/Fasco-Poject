@@ -17,22 +17,23 @@
   --font-Poppins: 'Poppins', sans-serif;
 
   /*colors*/
-  --grey-text: #484848;
-  --light-grey-text: #8A8A8A;
-  --whiteish-bg: #FAFAFA;
-  --gold: #DAA520;
-  --dark-gray: #DADADA;
-  --dark-gray2: #D9D9D9;
-  --grey-text2: #8A8A8A;
-  --light-gray2: #DEDFE1;
-  --light-gray3: #F2F2F2;
-  --light-gray4: #666666;
-  --light-gray5: #EEEEEE;
-  --bg-gar-1: #F1F1F1;
-  --progress-bar: #DEDEDE;
-  --sold-out-bg: #B1B1B1;
-  --gray-bg1: #F5F5F5;
-
+  --color-grey-text: #484848;
+  --color-light-grey-text: #8A8A8A;
+  --color-whiteish-bg: #FAFAFA;
+  --color-gold: #DAA520;
+  --color-dark-gray: #DADADA;
+  --color-dark-gray2: #D9D9D9;
+  --color-grey-text2: #8A8A8A;
+  --color-light-gray2: #DEDFE1;
+  --color-light-gray3: #F2F2F2;
+  --color-light-gray4: #666666;
+  --color-light-gray5: #EEEEEE;
+  --color-bg-gar-1: #F1F1F1;
+  --color-progress-bar: #DEDEDE;
+  --color-sold-out-bg: #B1B1B1;
+  --color-gray-bg1: #F5F5F5;
+  
+  --color-accent-gold: #D4AF37;
 
 }
 

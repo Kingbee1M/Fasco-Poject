@@ -1,4 +1,6 @@
+"use client"
 import Link from "next/link"
+import Image from "next/image"
 import { useState } from "react"
 import { CiSearch } from "react-icons/ci";
 import { IoPersonOutline } from "react-icons/io5";
@@ -7,6 +9,7 @@ import { BsBag } from "react-icons/bs";
 import React from "react";
 import { usePathname } from "next/navigation";
 import { useCartStore } from "@/store/useCartStore";
+import logo from "@/public/images/logo.jpeg"
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -21,7 +24,6 @@ const icons = [
   { name: 'wishlist', href: '/cart', icon: <MdStarOutline /> },
 ]
 
-
 export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [ismenuVisible, setIsMenuVisible] = useState(true);
@@ -34,61 +36,76 @@ export default function NavBar() {
     setIsCancelVisible(!isCancelVisible);
   }
 
-  const cart = useCartStore( (state => state.cart))
+  const cart = useCartStore((state => state.cart))
   const cartnumber = cart.length
 
-
   return (
-    <div className="w-full h-auto flex flex-col items-start justify-between p-5 gap-4 lg:flex-row lg:items-center fixed top-0 left-0 right-0 z-30 bg-white">
+    <div className="w-screen h-auto flex flex-col items-start justify-between px-6 lg:px-16 py-3 md:py-2 gap-4 lg:flex-row lg:items-center fixed top-0 left-0 right-0 z-30 bg-white shadow-sm">
 
-      <div className="w-full h-auto flex flex-row justify-between items-center lg:w-2/5">
+      <div className="w-full h-auto flex flex-row justify-between items-center lg:w-auto">
         {/* THE WEBSITE LOGO */}
-        <h1 className="w-auto font-Volkhov font-extrabold text-[25px] lg:text-[52px]">FASCO</h1>
+        <Link href="/" className="flex items-center">
+          <Image
+            src={logo}
+            alt="FASCO Logo"
+            priority
+            className="h-9 lg:h-10 w-auto object-contain"
+          />
+        </Link>
 
           {/* MENU LOGIC CONTROLS */}
-        <div className= "lg:hidden">
-          <div className={`${ismenuVisible ? "flex" : "hidden"}`} onClick={handleMenuToggle}><span className="material-symbols-outlined cursor-pointer">dehaze</span></div>
-          <div className={`${isCancelVisible ? "flex" : "hidden"}`} onClick={handleMenuToggle}><span className="material-symbols-outlined cursor-pointer">cancel</span></div>
+        <div className="lg:hidden">
+          <div className={`${ismenuVisible ? "flex" : "hidden"}`} onClick={handleMenuToggle}>
+            <span className="material-symbols-outlined cursor-pointer">dehaze</span>
+          </div>
+          <div className={`${isCancelVisible ? "flex" : "hidden"}`} onClick={handleMenuToggle}>
+            <span className="material-symbols-outlined cursor-pointer">cancel</span>
+          </div>
         </div>
-
       </div>
 
         {/* RENDERING MENU */}
-      <div className={`${isMenuOpen ? "max-h-96 opacity-100 pb-3" : "max-h-0 opacity-0"} overflow-hidden w-full flex-col justify-center items-center lg:overflow-auto lg:max-h-none lg:pb-0 lg:h-auto lg:opacity-100 lg:justify-between lg:flex lg:flex-row lg:gap-4 transition-all duration-500 ease-in-out bg-white`}>
+      <div className={`${isMenuOpen ? "max-h-96 opacity-100 pb-3" : "max-h-0 opacity-0"} overflow-hidden w-full flex-col justify-center items-center lg:overflow-visible lg:max-h-none lg:pb-0 lg:h-auto lg:opacity-100 lg:flex lg:flex-row lg:w-auto lg:gap-6 transition-all duration-500 ease-in-out bg-white`}>
         
-        {/* lINKS */}
-        <div className="w-full h-auto flex flex-col justify-center items-center lg:w-auto lg:flex-row gap-5 lg:gap-10">
-            {navigation.map((item) => (
-              <Link key={item.name} href={item.href} className={` ${ item.href === "/"
-                ? pathname === "/" // only exact match for home
-                  ? "lg:underline lg:font-bold"
-                  : ""
-                : pathname.startsWith(item.href)
-                ? "lg:underline lg:font-bold"
-                : ""} text-[15px] font-medium hover:underline underline-offset-4 text-[var(--grey-text)] lg:text-[25px] `} style={{ fontFamily: 'var(--font-Poppins)' }}>
-                {item.name}
-              </Link>
-            ))}
+        {/* LINKS */}
+        <div className="w-full h-auto flex flex-col justify-center items-center lg:w-auto lg:flex-row gap-4 lg:gap-6">
+            {navigation.map((item) => {
+              const isActive = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
+              return (
+                <Link 
+                  key={item.name} 
+                  href={item.href} 
+                  className={`text-[14px] font-medium transition-colors duration-200 hover:text-accent-gold underline-offset-4 hover:underline decoration-accent-gold text-grey-text lg:text-[14px] ${
+                    isActive ? "lg:underline lg:font-bold lg:text-accent-gold decoration-accent-gold" : ""
+                  }`} 
+                  style={{ fontFamily: 'var(--font-Poppins)' }}
+                >
+                  {item.name}
+                </Link>
+              );
+            })}
         </div>
 
           {/* ICONS */}
-        <div className="w-full flex justify-end items-center gap-5 lg:w-auto">
+        <div className="w-full flex justify-center lg:justify-end items-center gap-5 lg:w-auto mt-2 lg:mt-0">
           {icons.map((icon) => (
-            <Link key={icon.name} href={icon.href} className=" text-[var(--grey-text)] hover:text-black transition-all duration-300 ease-in-out">
-              {React.cloneElement(icon.icon, {className: "text-xl hover:text-yellow-500 transition-all duration-300 ease-in-out",
-          })}
+            <Link key={icon.name} href={icon.href} className="text-grey-text hover:text-accent-gold transition-all duration-300 ease-in-out">
+              {React.cloneElement(icon.icon, {className: "text-xl transition-all duration-300 ease-in-out"})}
             </Link>
           ))}
           <div className="relative">
-            <Link href="/cart" className=" text-[var(--grey-text)] hover:text-black transition-all duration-300 ease-in-out"><BsBag className="text-xl hover:text-yellow-500 transition-all duration-300 ease-in-out" /></Link>
-              {cartnumber > 0 && (
-                <div className="text-white text-center text-xs bg-red-500 w-3 h-3 absolute rounded-full bottom-3 right-4 flex items-center justify-center p-2">{cartnumber}</div>
-              )}
+            <Link href="/cart" className="text-grey-text hover:text-accent-gold transition-all duration-300 ease-in-out">
+              <BsBag className="text-xl transition-all duration-300 ease-in-out" />
+            </Link>
+            {cartnumber > 0 && (
+              <div className="text-white text-center text-[10px] bg-accent-gold w-4 h-4 absolute rounded-full -bottom-1 -right-2 flex items-center justify-center p-2 font-bold shadow-sm">
+                {cartnumber}
+              </div>
+            )}
           </div>
         </div>
 
-
       </div>
     </div>
-)
+  )
 }

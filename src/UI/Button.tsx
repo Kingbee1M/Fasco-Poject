@@ -39,7 +39,7 @@ export default function Button({
 
   const variants = {
     primary: `
-      ${isActive ? "bg-black text-white" : "bg-[var(--whiteish-bg)] text-[var(--grey-text)]"} 
+      ${isActive ? "bg-black text-white" : "bg-[var(--whiteish-bg)] text-grey-text"} 
       hover:bg-black hover:text-white rounded-md
     `,
     secondary: `
@@ -50,7 +50,7 @@ export default function Button({
       hover:bg-[var(--grey-text)] hover:text-white rounded-md cursor-pointer
     `,
     ghost: `
-      text-[var(--grey-text)] hover:text-black hover:bg-[var(--whiteish-bg)]
+      text-grey-text hover:text-black hover:bg-[var(--whiteish-bg)]
     `,
     colors: `
       w-4 h-4 rounded-full cursor-pointer
