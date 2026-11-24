@@ -64,7 +64,7 @@ const GOLD = "212,175,55"; // #D4AF37 as rgb, keep in sync with accent-gold
 // Column/row sizes (in fr) for the shifting grid. Everything at 1 = even grid.
 const COL_COUNT = 8;
 const ROW_COUNT = 6;
-const evenTracks = (n) => Array(n).fill(1);
+const evenTracks = (n: number): number[] => Array(n).fill(1);
 
 // Pick a couple of random tracks and make them fat or skinny.
 function shiftTracks(n: number, sizes: number[]): number[] {
@@ -77,13 +77,13 @@ function shiftTracks(n: number, sizes: number[]): number[] {
   return next;
 }
 
-const toTemplate = (tracks: any[]) =>
+const toTemplate = (tracks: number[]): string =>
   tracks.map((t) => `minmax(0, ${t}fr)`).join(" ");
 
 export default function SignInHero() {
   const [isShopHovered, setIsShopHovered] = useState(false);
-  const [colTracks, setColTracks] = useState(evenTracks(COL_COUNT));
-  const [rowTracks, setRowTracks] = useState(evenTracks(ROW_COUNT));
+  const [colTracks, setColTracks] = useState<number[]>(evenTracks(COL_COUNT));
+  const [rowTracks, setRowTracks] = useState<number[]>(evenTracks(ROW_COUNT));
   const reduceMotion = useReducedMotion();
 
   // Living grid: every few seconds some columns/rows swell or shrink.
@@ -220,19 +220,19 @@ export default function SignInHero() {
             },
           }}
           style={{
-  backgroundColor: isShopHovered
-    ? "rgba(212,175,55,0.4)"   // gold blur on hover
-    : "rgba(255,255,255,0.55)", // white blur at rest
-  backdropFilter: "blur(14px)",
-  WebkitBackdropFilter: "blur(14px)",
-  boxShadow: isShopHovered
-    ? `0 0 90px 12px rgba(${GOLD},0.5), 0 25px 50px -12px rgba(0,0,0,0.25)`
-    : "0 25px 50px -12px rgba(0,0,0,0.25)",
-  transition: `background-color 0.9s ease-in-out ${
-    isShopHovered ? "0.35s" : "0s"
-  }, box-shadow 0.7s ease-out`,
-}}
-className="pointer-events-auto w-[92%] sm:w-auto rounded-xl px-4 py-5 sm:px-8 sm:py-7 xl:px-10 xl:py-8 flex flex-col items-center justify-center gap-3 xl:gap-4"
+            backgroundColor: isShopHovered
+              ? "rgba(212,175,55,0.4)" // gold blur on hover
+              : "rgba(255,255,255,0.55)", // white blur at rest
+            backdropFilter: "blur(14px)",
+            WebkitBackdropFilter: "blur(14px)",
+            boxShadow: isShopHovered
+              ? `0 0 90px 12px rgba(${GOLD},0.5), 0 25px 50px -12px rgba(0,0,0,0.25)`
+              : "0 25px 50px -12px rgba(0,0,0,0.25)",
+            transition: `background-color 0.9s ease-in-out ${
+              isShopHovered ? "0.35s" : "0s"
+            }, box-shadow 0.7s ease-out`,
+          }}
+          className="pointer-events-auto w-[92%] sm:w-auto rounded-xl px-4 py-5 sm:px-8 sm:py-7 xl:px-10 xl:py-8 flex flex-col items-center justify-center gap-3 xl:gap-4"
         >
           {/* ULTIMATE Text (Stage 4 of Gold Rise) */}
           <motion.div
