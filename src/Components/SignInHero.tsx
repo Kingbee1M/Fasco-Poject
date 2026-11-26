@@ -372,7 +372,7 @@ export default function SignInHero() {
             }}
           >
             <Link
-              href="/shop"
+              href="/login"
               onMouseEnter={() => setIsShopHovered(true)}
               onMouseLeave={() => setIsShopHovered(false)}
               className="relative overflow-hidden text-center py-3.5 px-10 rounded-md bg-black text-white inline-block shadow-md transition-transform duration-200 hover:scale-105"

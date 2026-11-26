@@ -3,8 +3,8 @@
 import { useState, FormEvent } from "react"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
-import news1Img from "@/public/images/news1.svg"
-import news2Img from "@/public/images/news2.svg"
+import news1Img from "@/public/images/news1.webp"
+import news2Img from "@/public/images/news2.webp"
 
 type SubmitState = "idle" | "submitting" | "success" | "error"
 

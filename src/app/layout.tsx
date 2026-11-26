@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import NavbarWrapper from "@/UI/NavBarWrapper";
-import Footer from "@/UI/Footer";
+import FooterWrapper from "@/UI/FooterWrapper";
 
 export const metadata: Metadata = {
   title: "Fasco Runway",
@@ -24,7 +24,7 @@ export default function RootLayout({
       <body className="antialiased dark:bg-white dark:text-black">
         <NavbarWrapper />
         {children}
-        <Footer />
+        <FooterWrapper />
         <div id="portal-root" />
       </body>
     </html>

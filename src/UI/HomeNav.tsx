@@ -101,7 +101,7 @@ export default function Homenav() {
           ))}
 
           <Link 
-            href="/Sign-In" 
+            href="/login" 
             className="text-[14px] font-medium transition-colors duration-200 hover:text-accent-gold underline-offset-4 hover:underline decoration-accent-gold text-grey-text" 
             style={{ fontFamily: 'var(--font-Poppins)' }}
           >
@@ -109,7 +109,7 @@ export default function Homenav() {
           </Link>
 
           <Link 
-            href="/Sign-Up" 
+            href="/signup" 
             className="text-[14px] font-medium text-white bg-accent-gold hover:bg-accent-gold px-4 py-1.5 rounded-md transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5" 
             style={{ fontFamily: 'var(--font-Poppins)' }}
           >
