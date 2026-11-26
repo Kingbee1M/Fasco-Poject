@@ -7,14 +7,21 @@ import { motion, useReducedMotion } from "framer-motion";
 
 // Bento images: swap any of these paths later.
 // (Reusing current images for now, each tile has its own import.)
-import bento1 from "@/public/images/women1.jpeg";
-import bento2 from "@/public/images/left.webp";
-import bento3 from "@/public/images/right.webp";
+// import bento1 from "@/public/images/women1.jpeg";
+// import bento2 from "@/public/images/left.webp";
+// import bento3 from "@/public/images/right.webp";
 import bento4 from "@/public/images/bottom.webp";
 
 // Grid is 8 columns x 6 rows. Tiles are placed in order (left to right,
 // top to bottom) and the spans below fill the grid with no gaps.
 // If you add/remove/resize tiles, re-check that the total area is 48 cells.
+
+const bento1 =
+  "https://images.unsplash.com/photo-1641068638532-22533effdafa?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D";
+const bento2 =
+  "https://plus.unsplash.com/premium_photo-1706806943378-e39d2e9f4a5b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D";
+const bento3 =
+  "https://images.unsplash.com/photo-1752517047345-0caed993a88d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D";
 const bento5 =
   "https://plus.unsplash.com/premium_photo-1729523163169-7b4c521615c8?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D";
 const bento6 =
@@ -194,7 +201,17 @@ export default function SignInHero() {
               alt={tile.alt}
               fill
               sizes="(min-width: 1024px) 50vw, 80vw"
-              className="object-cover grayscale"
+              className="object-cover"
+              style={{
+                filter: isShopHovered
+                  ? "grayscale(0) saturate(1.15)"
+                  : "grayscale(1) saturate(1)",
+                transition: "filter 0.9s ease-out",
+                // Color arrives just after this tile's gold edge lights up
+                transitionDelay: isShopHovered
+                  ? `${0.45 + Math.abs(7 - tile.col) * 0.09}s`
+                  : "0s",
+              }}
             />
           </motion.div>
         ))}

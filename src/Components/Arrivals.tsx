@@ -4,12 +4,12 @@ import Button from "@/UI/Button"
 import { useState } from "react"
 import { FaStar } from "react-icons/fa";
 import Image, { StaticImageData } from "next/image";
-import arrivalImg from "@/public/images/arrival.svg"
-import arrival1Img from "@/public/images/arrival1.svg"
-import arrival2Img from "@/public/images/arrival2.svg"
-import arrival3Img from "@/public/images/arrival3.svg"
-import arrival4Img from "@/public/images/arrival4.svg"
-import arrival5Img from "@/public/images/arrival5.svg"
+import arrivalImg from "@/public/images/arrival.webp"
+import arrival1Img from "@/public/images/arrival1.webp"
+import arrival2Img from "@/public/images/arrival2.webp"
+import arrival3Img from "@/public/images/arrival3.webp"
+import arrival4Img from "@/public/images/arrival4.webp"
+import arrival5Img from "@/public/images/arrival5.webp"
 
 type Status = "in stock" | "Almost sold out" | "out of stock"
 

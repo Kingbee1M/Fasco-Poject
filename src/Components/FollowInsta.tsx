@@ -1,12 +1,12 @@
 import Image from "next/image"
 
 const instagram = [
-    "/images/insta1.svg",
-    "/images/insta2.svg",
-    "/images/insta3.svg",
-    "/images/insta4.svg",
-    "/images/insta5.svg",
-    "/images/insta6.svg",
+    "/images/insta1.webp",
+    "/images/insta2.webp",
+    "/images/insta3.webp",
+    "/images/insta4.webp",
+    "/images/insta5.webp",
+    "/images/insta6.webp",
   ]
 
 export default function FollowInsta() {
